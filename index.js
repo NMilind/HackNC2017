@@ -30,12 +30,3 @@ var heatmap = new google.maps.visualization.HeatmapLayer({
 });
 }
 
-//From https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick_dropdown
-// Get button, execute myFunction
-document.getElementById("myBtn").onclick = function()
-{myFunction()};
-
-//hide and show dropdown content
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
