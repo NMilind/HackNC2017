@@ -2,24 +2,25 @@
 <html>
   <head>
     <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3U8TaibdXSWwuVHMBq0c5lomQSHe3gYM&libraries=visualization"></script>
     <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
-    <select>
-        <option value="costOfLiving">Cost of Living</option>
-        <option value="religion">Religion</option>
-        <option value="unemployment">Unemployment Rate</option>
-        <option value="income">Median Household Income</option>
-        <option value="gradRate">High School Graduation Rate</option>
-        <option value="minWage">Minimum Wage</option>
-        <option value="salesTax">Sales Tax</option>
-        <option value="stemRate">STEM Job Rate</option>
-        <option value="lgbtCrimes">LGBT Hate Crimes</option>
-        <option value="raceCrimes">Race Hate Crimes</option>
-    </select>
+    <div id="floating-panel">
+      <select>
+          <option value="costOfLiving">Cost of Living</option>
+          <option value="religion">Religion</option>
+          <option value="unemployment">Unemployment Rate</option>
+          <option value="income">Median Household Income</option>
+          <option value="gradRate">High School Graduation Rate</option>
+          <option value="minWage">Minimum Wage</option>
+          <option value="salesTax">Sales Tax</option>
+          <option value="stemRate">STEM Job Rate</option>
+          <option value="lgbtCrimes">LGBT Hate Crimes</option>
+          <option value="raceCrimes">Race Hate Crimes</option>
+      </select>
+    </div>
     <div id="map"></div>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3U8TaibdXSWwuVHMBq0c5lomQSHe3gYM&libraries=visualization&callback=initMap">
-    </script>
   </body>
 </html>
