@@ -86,13 +86,23 @@ label {
 	width: 100px;
 }
 
-
-
-
-
-
-
-
-
-
-
+.index-first {
+	position: absolute;
+	width: 200px;
+	bottom: 60px;
+	left: 10px;
+	z-index: 10; 
+	padding: 1em;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+}
+.index-second {
+	position: absolute;
+	width: 200px;
+	bottom: 10px;
+	left: 10px;
+	z-index: 10; 
+	padding: 1em;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+}
