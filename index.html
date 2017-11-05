@@ -8,22 +8,44 @@
     <script type="text/javascript" src="statecoords.js"></script>
     <script type="text/javascript" src="costofliving.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Neuton:300" rel="stylesheet">
   </head>
   <body>
-    <div id="floating-panel">
-      <select id="data-options">
-          <option value="costOfLiving">Cost of Living</option>
-          <option value="religion">Religion</option>
-          <option value="unemployment">Unemployment Rate</option>
-          <option value="income">Median Household Income</option>
-          <option value="gradRate">High School Graduation Rate</option>
-          <option value="minWage">Minimum Wage</option>
-          <option value="salesTax">Sales Tax</option>
-          <option value="stemRate">STEM Job Rate</option>
-          <option value="lgbtCrimes">LGBT Hate Crimes</option>
-          <option value="raceCrimes">Race Hate Crimes</option>
-      </select>
-    </div>
-    <div id="map"></div>
+  <div id="header"> <h1>Improve to Move</h1></div>
+    <div id="container">
+      <div id="float-left"><div id="floating-panel">
+        <select id="data-options">
+           <option value="costOfLiving">Cost of Living</option>
+            <option value="religion">Religion</option>
+            <option value="unemployment">Unemployment Rate</option>
+            <option value="income">Median Household Income</option>
+            <option value="gradRate">High School Graduation Rate</option>
+            <option value="minWage">Minimum Wage</option>
+            <option value="salesTax">Sales Tax</option>
+            <option value="stemRate">STEM Job Rate</option>
+            <option value="lgbtCrimes">LGBT Hate Crimes</option>
+            <option value="raceCrimes">Race Hate Crimes</option>
+        </select><br/><br/>
+        <select id="states">
+           <script type="text/javascript">
+           var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+            for (var i= 0; i < states.length; i++){
+            var opt =  $("<option></option>");
+            $(opt).attr("value",states[i]);
+            $(opt).html(states[i]);
+            $("#states").append(opt);
+             }
+             </script>
+       </select><br/>
+       <div id="indicators"><h5>Indicators</h5></div>
+       <input type="range" min="1" max="14" value="50" class="slider" id="myRange"><br/>
+       <input type="range" min="1" max="14" value="50" class="slider" id="myRange"><br/>
+       <input type="range" min="1" max="14" value="50" class="slider" id="myRange"><br/>
+       <input type="range" min="1" max="14" value="50" class="slider" id="myRange"><br/>
+       <input type="range" min="1" max="14" value="50" class="slider" id="myRange"><br/>
+       <input type="range" min="1" max="14" value="50" class="slider" id="myRange">
+     </div></div>
+    <div id="float-right"><div id="map"></div></div>
+  </div>
   </body>
 </html>
