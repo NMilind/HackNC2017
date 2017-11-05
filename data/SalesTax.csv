@@ -1,52 +1,51 @@
-"State and Local Sales Tax Rates as of January 1, 2017",
-State,State Tax Rate
-Alabama,4.00%
-Alaska,0.00%
-Arizona,5.60%
-Arkansas,6.50%
-California (b),7.25%
-Colorado,2.90%
-Connecticut,6.35%
-Delaware,0.00%
-Florida,6.00%
-Georgia,4.00%
-Hawaii (c),4.00%
-Idaho,6.00%
-Illinois,6.25%
-Indiana,7.00%
-Iowa,6.00%
-Kansas,6.50%
-Kentucky,6.00%
-Louisiana,5.00%
-Maine,5.50%
-Maryland,6.00%
-Massachusetts,6.25%
-Michigan,6.00%
-Minnesota,6.88%
-Mississippi,7.00%
-Missouri,4.23%
-Montana (d),0.00%
-Nebraska,5.50%
-Nevada,6.85%
-New Hampshire,0.00%
-New Jersey (e),6.88%
-New Mexico (c),5.13%
-New York,4.00%
-North Carolina,4.75%
-North Dakota,5.00%
-Ohio,5.75%
-Oklahoma,4.50%
-Oregon,0.00%
-Pennsylvania,6.00%
-Rhode Island,7.00%
-South Carolina,6.00%
-South Dakota (c),4.50%
-Tennessee,7.00%
-Texas,6.25%
-Utah (b),5.95%
-Vermont,6.00%
-Virginia (b),5.30%
-Washington,6.50%
-West Virginia,6.00%
-Wisconsin,5.00%
-Wyoming,4.00%
+State,State Tax Rate,-
+Alabama,0.04,
+Alaska,0.00,
+Arizona,0.06,
+Arkansas,0.07,
+California (b),0.07,
+Colorado,0.03,
+Connecticut,0.06,
+Delaware,0.00,
+Florida,0.06,
+Georgia,0.04,
+Hawaii (c),0.04,
+Idaho,0.06,
+Illinois,0.06,
+Indiana,0.07,
+Iowa,0.06,
+Kansas,0.07,
+Kentucky,0.06,
+Louisiana,0.05,
+Maine,0.06,
+Maryland,0.06,
+Massachusetts,0.06,
+Michigan,0.06,
+Minnesota,0.07,
+Mississippi,0.07,
+Missouri,0.04,
+Montana (d),0.00,
+Nebraska,0.06,
+Nevada,0.07,
+New Hampshire,0.00,
+New Jersey (e),0.07,
+New Mexico (c),0.05,
+New York,0.04,
+North Carolina,0.05,
+North Dakota,0.05,
+Ohio,0.06,
+Oklahoma,0.05,
+Oregon,0.00,
+Pennsylvania,0.06,
+Rhode Island,0.07,
+South Carolina,0.06,
+South Dakota (c),0.05,
+Tennessee,0.07,
+Texas,0.06,
+Utah (b),0.06,
+Vermont,0.06,
+Virginia (b),0.05,
+Washington,0.07,
+West Virginia,0.06,
+Wisconsin,0.05,
+Wyoming,0.04,

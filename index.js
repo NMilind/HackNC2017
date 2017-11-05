@@ -2,17 +2,21 @@ var map;
 
 var outlier = [0, 0, 0];
 
+var lineSymbol = {
+  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+};
+
 dataMap = {
   "costOfLiving": getCostOfLivingPoints,
   "religion": getReligionPoints,
   "unemployment": getUnemploymentPoints,
-  "income": getIncomePoints/*,
+  "income": getIncomePoints,
   "gradRate": getGradRatePoints,
   "minWage": getMinWagePoints,
   "salesTax": getSalesTaxPoints,
   "stemRate": getStemRatePoints,
   "lgbtCrimes": getLgbtCrimesPoints,
-  "raceCrimes": getRaceCrimesPoints,*/
+  "raceCrimes": getRaceCrimesPoints
 };
 
 coloration = {};
@@ -54,6 +58,15 @@ function setupMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 5,
     center: {lat: 39.7334, lng: -98.7481}
+  });
+
+  var line = new google.maps.Polyline({
+    path: [{lat: 32.806671, lng: -86.79113}, {lat: 61.370716, lng: -152.404419}],
+    icons: [{
+      icon: lineSymbol,
+      offset: '100%'
+    }],
+    map: map
   });
 
   for (var i = 0; i < stateCoords.length; i++) {

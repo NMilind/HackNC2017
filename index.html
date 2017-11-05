@@ -9,23 +9,68 @@
     <script type="text/javascript" src="costofliving.js"></script>
     <script type="text/javascript" src="religion.js"></script>
     <script type="text/javascript" src="unemployment.js"></script>
+    <script type="text/javascript" src="income.js"></script>
+    <script type="text/javascript" src="gradrate.js"></script>
+    <script type="text/javascript" src="minwage.js"></script>
+    <script type="text/javascript" src="salestax.js"></script>
+    <script type="text/javascript" src="stemrate.js"></script>
+    <script type="text/javascript" src="lgbtcrimes.js"></script>
+    <script type="text/javascript" src="racecrime.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   </head>
   <body>
-    <div id="floating-panel">
-      <select id="data-options">
-          <option value="costOfLiving">Cost of Living</option>
-          <option value="religion">Religion</option>
-          <option value="unemployment">Unemployment Rate</option>
-          <option value="income">Median Household Income</option>
-          <option value="gradRate">High School Graduation Rate</option>
-          <option value="minWage">Minimum Wage</option>
-          <option value="salesTax">Sales Tax</option>
-          <option value="stemRate">STEM Job Rate</option>
-          <option value="lgbtCrimes">LGBT Hate Crimes</option>
-          <option value="raceCrimes">Race Hate Crimes</option>
-      </select>
-    </div>
-    <div id="map"></div>
+  <div id="header"> <h1>Improve to Move</h1></div>
+    <div id="container">
+      <div id="float-left"><div id="floating-panel">
+        <select id="data-options">
+           <option value="costOfLiving">Cost of Living</option>
+            <option value="religion">Religion</option>
+            <option value="unemployment">Unemployment Rate</option>
+            <option value="income">Median Household Income</option>
+            <option value="gradRate">High School Graduation Rate</option>
+            <option value="minWage">Minimum Wage</option>
+            <option value="salesTax">Sales Tax</option>
+            <option value="stemRate">STEM Job Rate</option>
+            <option value="lgbtCrimes">LGBT Hate Crimes</option>
+            <option value="raceCrimes">Race Hate Crimes</option>
+        </select><br/><br/>
+        <select id="states">
+           <script type="text/javascript">
+           var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+            for (var i= 0; i < states.length; i++){
+            var opt =  $("<option></option>");
+            $(opt).attr("value",states[i]);
+            $(opt).html(states[i]);
+            $("#states").append(opt);
+             }
+             </script>
+       </select><br/>
+       <div id="indicators"><h5>Indicators</h5></div>
+        <label for="male">Cost of Living</label>
+         <input type="range" min="0" max="200" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Minimum Wage</label>
+         <input type="range" min="0" max="15" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Jobs</label>
+         <input type="range" min="0" max="0.4" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Graduation Rates</label>
+         <input type="range" min="0" max="95" value="50" class="slider" id="myRange"><br/>
+         <label for="male">LGBT Hate Crimes</label>
+         <input type="range" min="0" max="20" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Median Income</label>
+         <input type="range" min="0" max="80000" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Race Hate Crimes</label>
+         <input type="range" min="0" max="20" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Religious Hate Crimes</label>
+         <input type="range" min="0" max="20" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Sales Tax</label>
+         <input type="range" min="0" max="10" value="50" class="slider" id="myRange"><br/>
+         <label for="male">STEM Job Percentage</label>
+         <input type="range" min="0" max="10" value="50" class="slider" id="myRange"><br/>
+         <label for="male">Unemployment Rates</label>
+         <input type="range" min="0" max="25" value="50" class="slider" id="myRange">
+     </div></div>
+    <div id="float-right"><div id="map"></div></div>
+  </div>
   </body>
 </html>
