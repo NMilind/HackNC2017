@@ -2,14 +2,6 @@ var map;
 
 var outlier = [0, 0, 0];
 
-var lineSymbol = {
-  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-  geodesic: true,
-  strokeColor: '#FF0000',
-  strokeOpacity: 1.0,
-  strokeWeight: 3
-};
-
 dataMap = {
   "costOfLiving": getCostOfLivingPoints,
   "religion": getReligionPoints,
@@ -165,11 +157,33 @@ $(document).ready(function() {
   });
   $("#states").change(function() {
     var state = $(this).val();
-    data = runAlg(state);
+    // TODO: Get values from slider to put them in here
+    var c = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; 
+    data = runAlg(state, c);
     setupMap();
+
+    var posMax = 0;
+    var negMax = 0;
+    for (var key in data) {
+      if (data[key].magnitude > 0 && data[key].magnitude > posMax) {
+        posMax = data[key].magnitude;
+      }
+      if (data[key].magnitude < 0 && data[key].magnitude < negMax) {
+        negMax = data[key].magnitude;
+      }
+    }
+
     for (var key in data) {
 
       if (data[key].magnitude > 0) {
+        var col = lerpColor([data[key].magnitude, 0, posMax], [127.5, 127.5, 0], [255, 0, 0]);
+        var lineSymbol = {
+          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+          geodesic: true,
+          strokeColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        };
         var line = new google.maps.Polyline({
           path: [{lat: data[key].lat, lng: data[key].lng}, {lat: data[state].lat, lng: data[state].lng}],
           icons: [{
@@ -181,6 +195,14 @@ $(document).ready(function() {
       }
 
       if (data[key].magnitude < 0) {
+        var col = lerpColor([data[key].magnitude, negMax, 0], [0, 255, 0], [127.5, 127.5, 0]);
+        var lineSymbol = {
+          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+          geodesic: true,
+          strokeColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        };
         var line = new google.maps.Polyline({
           path: [{lat: data[state].lat, lng: data[state].lng}, {lat: data[key].lat, lng: data[key].lng}],
           icons: [{

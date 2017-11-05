@@ -96,31 +96,31 @@ function getStates(state) {
     return retVal;
 }
 
-function runAlg(state) {
+function runAlg(state, c) {
 
     states = getStates(state);
     var retVal = {};
     for (var y in states) {
         retVal[y] = states[y];
-        retVal[y].magnitude = getMagnitude(state, y);
+        retVal[y].magnitude = getMagnitude(state, y, c);
     }
     return retVal;
 }
 
-function getMagnitude(x, y) {
+function getMagnitude(x, y, c) {
 
     var rates = [];
-    rates[0] = calculateRate(getCostOfLivingPoints({})[x], getCostOfLivingPoints({})[y]);
-    rates[1] = calculateRate(getReligionPoints({})[x], getReligionPoints({})[y]);
-    rates[2] = calculateRate(getUnemploymentPoints({})[x], getUnemploymentPoints({})[y]);
-    rates[3] = calculateRate(getIncomePoints({})[x], getIncomePoints({})[y]);
-    rates[4] = calculateRate(getGradRatePoints({})[x], getGradRatePoints({})[y]);
-    rates[5] = calculateRate(getMinWagePoints({})[x], getMinWagePoints({})[y]);
-    rates[6] = calculateRate(getSalesTaxPoints({})[x], getSalesTaxPoints({})[y]);
-    rates[7] = calculateRate(getStemRatePoints({})[x], getStemRatePoints({})[y]);
-    rates[8] = calculateRate(getLgbtCrimesPoints({})[x], getLgbtCrimesPoints({})[y]);
-    rates[9] = calculateRate(getRaceCrimesPoints({})[x], getRaceCrimesPoints({})[y]);
-    rates[10] = calculateRate(getJobsPoints({})[x], getJobsPoints({})[y]);
+    rates[0] = calculateRate(getCostOfLivingPoints({})[x] * c[0], getCostOfLivingPoints({})[y]);
+    rates[1] = calculateRate(getReligionPoints({})[x] * c[1], getReligionPoints({})[y]);
+    rates[2] = calculateRate(getUnemploymentPoints({})[x] * c[2], getUnemploymentPoints({})[y]);
+    rates[3] = calculateRate(getIncomePoints({})[x] * c[3], getIncomePoints({})[y]);
+    rates[4] = calculateRate(getGradRatePoints({})[x] * c[4], getGradRatePoints({})[y]);
+    rates[5] = calculateRate(getMinWagePoints({})[x] * c[5], getMinWagePoints({})[y]);
+    rates[6] = calculateRate(getSalesTaxPoints({})[x] * c[6], getSalesTaxPoints({})[y]);
+    rates[7] = calculateRate(getStemRatePoints({})[x] * c[7], getStemRatePoints({})[y]);
+    rates[8] = calculateRate(getLgbtCrimesPoints({})[x] * c[8], getLgbtCrimesPoints({})[y]);
+    rates[9] = calculateRate(getRaceCrimesPoints({})[x] * c[9], getRaceCrimesPoints({})[y]);
+    rates[10] = calculateRate(getJobsPoints({})[x] * c[10], getJobsPoints({})[y]);
     var m = linearComb(rates);
     return m;
 }
