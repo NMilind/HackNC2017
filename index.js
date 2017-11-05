@@ -3,7 +3,8 @@ var map;
 var outlier = [0, 0, 0];
 
 var lineSymbol = {
-  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+  color: "#FF0000"
 };
 
 dataMap = {
@@ -16,7 +17,8 @@ dataMap = {
   "salesTax": getSalesTaxPoints,
   "stemRate": getStemRatePoints,
   "lgbtCrimes": getLgbtCrimesPoints,
-  "raceCrimes": getRaceCrimesPoints
+  "raceCrimes": getRaceCrimesPoints,
+  "jobs": getJobsPoints
 };
 
 coloration = {};
@@ -25,7 +27,6 @@ function createPolygonWithLabel(map, label, points) {
 
       // The state outline polygon, drawn by coordinates..
       var col = lerpColor([coloration[label], coloration["Minimum"], coloration["Maximum"]], [153, 0, 0], [0, 153, 0]);
-      console.log("rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")");
       var polygon = new google.maps.Polygon({
           fillColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
           fillOpacity: 0.35,
@@ -58,15 +59,6 @@ function setupMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 5,
     center: {lat: 39.7334, lng: -98.7481}
-  });
-
-  var line = new google.maps.Polyline({
-    path: [{lat: 32.806671, lng: -86.79113}, {lat: 61.370716, lng: -152.404419}],
-    icons: [{
-      icon: lineSymbol,
-      offset: '100%'
-    }],
-    map: map
   });
 
   for (var i = 0; i < stateCoords.length; i++) {
@@ -165,8 +157,38 @@ $(document).ready(function() {
   initialize();
   $("#data-options").change(function(data) {
     var val = $(this).val();
-    console.log(val);
     coloration = dataMap[val](coloration);
     setupMap();
+  });
+  $("#states").change(function() {
+    var state = $(this).val();
+    data = runAlg(state);
+    setupMap();
+    for (var key in data) {
+
+      if (data[key].magnitude > 0) {
+        var line = new google.maps.Polyline({
+          path: [{lat: data[key].lat, lng: data[key].lng}, {lat: data[state].lat, lng: data[state].lng}],
+          icons: [{
+            icon: lineSymbol,
+            offset: '50%',
+            color: "#FF0000"
+          }],
+          map: map
+        });
+      }
+
+      if (data[key].magnitude <= 0) {
+        var line = new google.maps.Polyline({
+          path: [{lat: data[state].lat, lng: data[state].lng}, {lat: data[key].lat, lng: data[key].lng}],
+          icons: [{
+            icon: lineSymbol,
+            offset: '50%'
+          }],
+          map: map
+        });
+      }
+    }
+
   });
 });
