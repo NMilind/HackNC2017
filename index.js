@@ -4,7 +4,10 @@ var outlier = [0, 0, 0];
 
 var lineSymbol = {
   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-  color: "#FF0000"
+  geodesic: true,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 3
 };
 
 dataMap = {
@@ -26,28 +29,28 @@ coloration = {};
 function createPolygonWithLabel(map, label, points) {
 
       // The state outline polygon, drawn by coordinates..
-      var col = lerpColor([coloration[label], coloration["Minimum"], coloration["Maximum"]], [153, 0, 0], [0, 153, 0]);
+      var col = lerpColor([coloration[label], coloration["Minimum"], coloration["Maximum"]], [255, 128, 255], [51, 153, 255]);
       var polygon = new google.maps.Polygon({
           fillColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
-          fillOpacity: 0.35,
+          fillOpacity: 0.4,
           map: map,
           paths: points,
           strokeColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.6,
           strokeWeight: 1
       });
 
       // When the mouse moves within the polygon, display the label and change the BG color.
       google.maps.event.addListener(polygon, "mousemove", function(event) {
         polygon.setOptions({
-            fillOpacity: 0.5
+            fillOpacity: 0.6
         });
     });
 
     // WHen the mouse moves out of the polygon, hide the label and change the BG color.
     google.maps.event.addListener(polygon, "mouseout", function(event) {
         polygon.setOptions({
-            fillOpacity: 0.35
+            fillOpacity: 0.4
         });
     });
 
@@ -171,14 +174,13 @@ $(document).ready(function() {
           path: [{lat: data[key].lat, lng: data[key].lng}, {lat: data[state].lat, lng: data[state].lng}],
           icons: [{
             icon: lineSymbol,
-            offset: '50%',
-            color: "#FF0000"
+            offset: '50%'
           }],
           map: map
         });
       }
 
-      if (data[key].magnitude <= 0) {
+      if (data[key].magnitude < 0) {
         var line = new google.maps.Polyline({
           path: [{lat: data[state].lat, lng: data[state].lng}, {lat: data[key].lat, lng: data[key].lng}],
           icons: [{

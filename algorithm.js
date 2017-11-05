@@ -1,5 +1,4 @@
-var LAT_DELTA = 20;
-var LNG_DELTA = 20;
+var NEIGHBORS = 6;
 
 latlng = {
     'Alabama': {lat:32.806671, lng:-86.79113},
@@ -73,14 +72,26 @@ function getStates(state) {
     var lat = latlng[state].lat;
     var lng = latlng[state].lng;
     var retVal = {};
-    var lat_delta = Math.sqrt(getArea({})[state]) / LAT_DELTA;
-    var lng_delta = Math.sqrt(getArea({})[state]) / LNG_DELTA;
+    //var lat_delta = Math.sqrt(getArea({})[state]) / LAT_DELTA;
+    //var lng_delta = Math.sqrt(getArea({})[state]) / LNG_DELTA;
+    var dists = {};
     for (var key in latlng) {
-        if (latlng[key].lat > lat - lat_delta && latlng[key].lat < lat + lat_delta) {
+        dists[key] = Math.sqrt(
+            Math.pow(latlng[key].lat - lat, 2) +
+            Math.pow(latlng[key].lng - lng, 2)
+        );
+        /*if (latlng[key].lat > lat - lat_delta && latlng[key].lat < lat + lat_delta) {
             if (latlng[key].lng > lng - lng_delta && latlng[key].lng < lng + lng_delta) {
                 retVal[key] = latlng[key];
             }
-        }
+        }*/
+    }
+    var distVals = Object.keys(dists).map(function(key){
+        return [dists[key], key];
+    });
+    distVals.sort(function(a, b) { return a[0] - b[0]; });
+    for (var i = 0; i < NEIGHBORS; i++) {
+        retVal[distVals[i][1]] = latlng[distVals[i][1]];
     }
     return retVal;
 }
