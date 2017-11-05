@@ -23,10 +23,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600")>
   </head>
   <body>
-  <div id="header"><h1>Improve to Move</h1></div>
     <div id="container">
-      <div id="float-left"><div id="map"></div></div>
+      <div id="map" style="overflow:hidden;"></div>
       <div id="float-right"><div id="floating-panel">
+        <div id="header"><h1>roamIN</h1></div>
         <select id="data-options">
            <option value="costOfLiving">Cost of Living</option>
             <option value="religion">Religion</option>
@@ -74,6 +74,6 @@
          <label for="male">Unemployment Rates</label>
          <input type="range" min="0" max="25" value="50" class="slider" id="myRange">
      </div></div>
-  </div>
+    </div>
   </body>
 </html>
