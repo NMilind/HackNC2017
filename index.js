@@ -1,6 +1,7 @@
 var map;
 
 var outlier = [0, 0, 0];
+var c = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; 
 
 dataMap = {
   "costOfLiving": getCostOfLivingPoints,
@@ -157,9 +158,9 @@ $(document).ready(function() {
   });
   $("#states").change(function() {
     var state = $(this).val();
-    // TODO: Get values from slider to put them in here
-    var c = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; 
     data = runAlg(state, c);
+    c = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; 
+    $(".slider").val("0");
     setupMap();
 
     var posMax = 0;
@@ -214,5 +215,73 @@ $(document).ready(function() {
       }
     }
 
+  });
+
+  var changed = true;
+  document.body.onmouseup = function() {
+    if (changed) {
+      changed = false;
+      setupMap();
+      console.log(c);
+      var state = $("#states").val();
+      data = runAlg(state, c);
+      var posMax = 0;
+      var negMax = 0;
+      for (var key in data) {
+        if (data[key].magnitude > 0 && data[key].magnitude > posMax) {
+          posMax = data[key].magnitude;
+        }
+        if (data[key].magnitude < 0 && data[key].magnitude < negMax) {
+          negMax = data[key].magnitude;
+        }
+      }
+  
+      for (var key in data) {
+  
+        if (data[key].magnitude > 0) {
+          var col = lerpColor([data[key].magnitude, 0, posMax], [127.5, 127.5, 0], [255, 0, 0]);
+          var lineSymbol = {
+            path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+            geodesic: true,
+            strokeColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+          };
+          var line = new google.maps.Polyline({
+            path: [{lat: data[key].lat, lng: data[key].lng}, {lat: data[state].lat, lng: data[state].lng}],
+            icons: [{
+              icon: lineSymbol,
+              offset: '50%'
+            }],
+            map: map
+          });
+        }
+  
+        if (data[key].magnitude < 0) {
+          var col = lerpColor([data[key].magnitude, negMax, 0], [0, 255, 0], [127.5, 127.5, 0]);
+          var lineSymbol = {
+            path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+            geodesic: true,
+            strokeColor: "rgb(" + col[0] + ", " + col[1] + ", " + col[2] + ")",
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+          };
+          var line = new google.maps.Polyline({
+            path: [{lat: data[state].lat, lng: data[state].lng}, {lat: data[key].lat, lng: data[key].lng}],
+            icons: [{
+              icon: lineSymbol,
+              offset: '50%'
+            }],
+            map: map
+          });
+        }
+      }
+    }
+  }
+  $(document).on('input', '.slider', function() {
+      var prc = $(this).val();
+      var cind = $(this).attr("data-c");
+      c[cind] = 1.0 + prc / 100.0;
+      changed = true;
   });
 });
