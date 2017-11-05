@@ -1,12 +1,12 @@
 html, body {
 	height: 100%;
-	margin: 0;
-	padding: 1em;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', serif;
+	background-color: #061C30;
+	color: #47bec7;
 }
 
 h1 {
-	text-align: left;
+	text-align: center;#
 }
 
 #container {
@@ -15,29 +15,30 @@ h1 {
 }
 
 #header { 
-	width:100vw;
-	height:20vh;
 	text-align: center;
+
+	height:10vh;
  }
 
 #map {
-	height: 80vh;
-    width: 60%;
-    float: right;
+	height: 90vh;
+    width: 50%;
+    float: left;
 }
 
-#float-right{
-	padding-right: 2em;
-	padding-bottom: 2em;
+#float-left{
+	padding-top: 2em;
+	padding-left: 4em;
 }
 
 
-#float-left {
-	width: 25%;
-	float: left;
+#float-right {
+	width: 40%;
+	float: right;
 	text-align: center;
 }
  #floating-panel{
+ 	padding-right: 6em;
 
  }
 
@@ -49,7 +50,7 @@ h1 {
     -webkit-appearance: none;
     width: 100%;
     height: 25px;
-    background: #d3d3d3;
+    background: #848d96;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -65,14 +66,14 @@ h1 {
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #9999ff;
+    background: #47bec7;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #9999ff;
+    background: #47bec7;
     cursor: pointer;
 }
 
