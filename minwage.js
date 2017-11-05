@@ -1,0 +1,57 @@
+getMinWagePoints = function(coloration) {
+
+    coloration["West Virginia"] = 8.75;
+    coloration["Hawaii"] = 9.25;
+    coloration["Florida"] = 8.1;
+    coloration["Wyoming"] = 5.15;
+    coloration["New Jersey"] = 8.44;
+    coloration["Illinois"] = 8.25;
+    coloration["Nevada"] = 8.25;
+    coloration["California"] = 10.5;
+    coloration["Texas"] = 7.25;
+    coloration["Washington"] = 11.0;
+    coloration["New York"] = 9.7;
+    coloration["Tennessee"] = 7.25;
+    coloration["Maryland"] = 9.25;
+    coloration["South Dakota"] = 8.65;
+    coloration["Virginia"] = 7.25;
+    coloration["Rhode Island"] = 9.6;
+    coloration["Alaska"] = 9.8;
+    coloration["Minnesota"] = 9.5;
+    coloration["Vermont"] = 10.0;
+    coloration["South Carolina"] = 7.25;
+    coloration["Ohio"] = 8.15;
+    coloration["Colorado"] = 9.3;
+    coloration["Oklahoma"] = 7.25;
+    coloration["Montana"] = 8.15;
+    coloration["New Mexico"] = 7.5;
+    coloration["Idaho"] = 7.25;
+    coloration["North Dakota"] = 7.25;
+    coloration["Kansas"] = 7.25;
+    coloration["Arizona"] = 10.0;
+    coloration["Iowa"] = 7.25;
+    coloration["Connecticut"] = 10.1;
+    coloration["Pennsylvania"] = 7.25;
+    coloration["Alabama"] = 7.25;
+    coloration["Massachusetts"] = 11.0;
+    coloration["Michigan"] = 8.9;
+    coloration["Maine"] = 9.0;
+    coloration["North Carolina"] = 7.25;
+    coloration["Utah"] = 7.25;
+    coloration["Oregon"] = 10.25;
+    coloration["Delaware"] = 8.25;
+    coloration["Georgia"] = 5.15;
+    coloration["New Hampshire"] = 7.25;
+    coloration["Wisconsin"] = 7.25;
+    coloration["Indiana"] = 7.25;
+    coloration["Missouri"] = 7.7;
+    coloration["Mississippi"] = 7.25;
+    coloration["Nebraska"] = 9.0;
+    coloration["Kentucky"] = 7.25;
+    coloration["Arkansas"] = 8.5;
+    coloration["Louisiana"] = 7.25;
+    coloration["Minimum"] = 5.15;
+    coloration["Maximum"] = 11.0;    
+
+    return coloration;
+}

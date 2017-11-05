@@ -7,12 +7,12 @@ dataMap = {
   "religion": getReligionPoints,
   "unemployment": getUnemploymentPoints,
   "income": getIncomePoints,
-  "gradRate": getGradRatePoints/*,
+  "gradRate": getGradRatePoints,
   "minWage": getMinWagePoints,
   "salesTax": getSalesTaxPoints,
   "stemRate": getStemRatePoints,
   "lgbtCrimes": getLgbtCrimesPoints,
-  "raceCrimes": getRaceCrimesPoints,*/
+  "raceCrimes": getRaceCrimesPoints
 };
 
 coloration = {};
