@@ -3,41 +3,42 @@ html, body {
 	font-family: 'Montserrat', serif;
 	background-color: #061C30;
 	color: #47bec7;
+	margin: 0;
+	padding: 0;
 }
 
-h1 {
-	text-align: center;#
+#header{
+	position: static;
+	text-align: center;
 }
 
 #container {
-	height:80vh;
+	height:100vh;
 	width:100vw;
 }
 
-#header { 
-	text-align: center;
-
-	height:10vh;
- }
 
 #map {
-	height: 90vh;
+	height: 100%;
     width: 50%;
     float: left;
+    background-position: center center;
+    background-size: cover;
+    position: fixed !important;
 }
-
-#float-left{
-	padding-top: 2em;
-	padding-left: 4em;
-}
-
 
 #float-right {
+	height: 100%;
 	width: 40%;
 	float: right;
 	text-align: center;
+	overflow: auto;
+	float: right;
+	margin-left: 50%;
+
 }
  #floating-panel{
+ 	padding-top: 6em;
  	padding-right: 6em;
 
  }
