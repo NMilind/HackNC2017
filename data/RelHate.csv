@@ -1,51 +1,51 @@
-State,Religion
-Alabama,0
-Alaska,0
-Arizona,52
-Arkansas,0
-California,191
-Colorado,16
-Connecticut,19
-Delaware,2
-Florida,13
-Hawaii,-1
-Georgia,5
-Idaho,12
-Illinois,12
-Indiana,9
-Iowa,1
-Kansas,8
-Kentucky,53
-Louisiana,11
-Maine,9
-Maryland,14
-Massachusetts,81
-Michigan,48
-Minnesota,20
-Missouri,19
-Mississippi,-1
-Montana,14
-Nebraska,1
-Nevada,5
-New Hampshire,3
-New Jersey,125
-New Mexico,2
-New York,256
-North Carolina,17
-North Dakota,3
-Ohio,39
-Oklahoma,3
-Oregon,9
-Pennsylvania,12
-Rhode Island,7
-South Carolina,2
-South Dakota,2
-Tennessee,28
-Texas,36
-Utah,11
-Vermont,0
-Virginia,24
-Washington,43
-West Virginia,3
-Wisconsin,8
-Wyoming,0
+State,Religion,-
+Alabama,0,
+Alaska,0,
+Arizona,52,
+Arkansas,0,
+California,191,
+Colorado,16,
+Connecticut,19,
+Delaware,2,
+Florida,13,
+Hawaii,-1,
+Georgia,5,
+Idaho,12,
+Illinois,12,
+Indiana,9,
+Iowa,1,
+Kansas,8,
+Kentucky,53,
+Louisiana,11,
+Maine,9,
+Maryland,14,
+Massachusetts,81,
+Michigan,48,
+Minnesota,20,
+Missouri,19,
+Mississippi,-1,
+Montana,14,
+Nebraska,1,
+Nevada,5,
+New Hampshire,3,
+New Jersey,125,
+New Mexico,2,
+New York,256,
+North Carolina,17,
+North Dakota,3,
+Ohio,39,
+Oklahoma,3,
+Oregon,9,
+Pennsylvania,12,
+Rhode Island,7,
+South Carolina,2,
+South Dakota,2,
+Tennessee,28,
+Texas,36,
+Utah,11,
+Vermont,0,
+Virginia,24,
+Washington,43,
+West Virginia,3,
+Wisconsin,8,
+Wyoming,0,
